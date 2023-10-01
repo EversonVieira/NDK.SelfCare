@@ -1,0 +1,10 @@
+﻿using NDK.Database.Interfaces;
+using NDK.SelfCare.Domain.Models;
+
+namespace NDK.SelfCare.Core.Interfaces.Repository
+{
+    public interface IContactRepository : INdkRepository<Contact>
+    {
+
+    }
+}

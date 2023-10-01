@@ -1,0 +1,152 @@
+﻿/*
+COMMON STRUCTURE
+	Id BIGINT PRIMARY KEY IDENTITY(1,1),
+	Uuid UNIQUEIDENTIFIER UNIQUE,
+
+
+
+	CreatedBy VARCHAR(255),
+	CreatedAt DATETIME,
+	LastUpdatedBy VARCHAR(255),
+	LastUpdatedAt DATETIME,
+	IsActive BIT,
+	IsDeleted BIT
+*/
+
+
+CREATE TABLE Person_Type(
+	Id BIGINT PRIMARY KEY IDENTITY(1,1),
+	Uuid UNIQUEIDENTIFIER UNIQUE,
+
+	[Key] VARCHAR(255) UNIQUE,
+	[Value] VARCHAR(255),
+
+	CreatedBy VARCHAR(255),
+	CreatedAt DATETIME,
+	LastUpdatedBy VARCHAR(255),
+	LastUpdatedAt DATETIME,
+	IsActive BIT,
+	IsDeleted BIT
+);
+
+CREATE TABLE Person (
+	Id BIGINT PRIMARY KEY IDENTITY(1,1),
+	Uuid UNIQUEIDENTIFIER UNIQUE,
+
+	[Name] VARCHAR(255),
+	BirthDate DATE,
+	FatherName VARCHAR(255),
+	MotherName VARCHAR(255),
+	
+
+
+	CreatedBy VARCHAR(255),
+	CreatedAt DATETIME,
+	LastUpdatedBy VARCHAR(255),
+	LastUpdatedAt DATETIME,
+	IsActive BIT,
+	IsDeleted BIT
+);
+
+CREATE TABLE Document_Type(
+	Id BIGINT PRIMARY KEY IDENTITY(1,1),
+	Uuid UNIQUEIDENTIFIER UNIQUE,
+
+	[Key] VARCHAR(255) UNIQUE,
+	[Value] VARCHAR(255),
+
+	CreatedBy VARCHAR(255),
+	CreatedAt DATETIME,
+	LastUpdatedBy VARCHAR(255),
+	LastUpdatedAt DATETIME,
+	IsActive BIT,
+	IsDeleted BIT
+);
+
+CREATE TABLE Document(
+	Id BIGINT PRIMARY KEY IDENTITY(1,1),
+	Uuid UNIQUEIDENTIFIER UNIQUE,
+
+	[Type] BIGINT,
+	[Value] VARCHAR(255),
+	IsUnique BIT,
+
+	CreatedBy VARCHAR(255),
+	CreatedAt DATETIME,
+	LastUpdatedBy VARCHAR(255),
+	LastUpdatedAt DATETIME,
+	IsActive BIT,
+	IsDeleted BIT
+
+	CONSTRAINT FK_D_T FOREIGN KEY ([Type]) REFERENCES Document_Type(Id)
+);
+
+CREATE TABLE Person_Document(
+	Id BIGINT PRIMARY KEY IDENTITY(1,1),
+	Uuid UNIQUEIDENTIFIER UNIQUE,
+
+	PersonId BIGINT,
+	DocumentId BIGINT,
+
+	CreatedBy VARCHAR(255),
+	CreatedAt DATETIME,
+	LastUpdatedBy VARCHAR(255),
+	LastUpdatedAt DATETIME,
+	IsActive BIT,
+	IsDeleted BIT,
+
+	CONSTRAINT FK_PD_P FOREIGN KEY (PersonId) REFERENCES Person(Id),
+	CONSTRAINT FK_PD_D FOREIGN KEY (DocumentId) REFERENCES Document(Id),
+);
+
+CREATE TABLE Contact_Type(
+	Id BIGINT PRIMARY KEY IDENTITY(1,1),
+	Uuid UNIQUEIDENTIFIER UNIQUE,
+
+	[Key] VARCHAR(255) UNIQUE,
+	[Value] VARCHAR(255),
+
+	CreatedBy VARCHAR(255),
+	CreatedAt DATETIME,
+	LastUpdatedBy VARCHAR(255),
+	LastUpdatedAt DATETIME,
+	IsActive BIT,
+	IsDeleted BIT
+);
+
+CREATE TABLE Contact(
+	Id BIGINT PRIMARY KEY IDENTITY(1,1),
+	Uuid UNIQUEIDENTIFIER UNIQUE,
+
+	[Type] BIGINT,
+	[Value] VARCHAR(255),
+	IsUnique BIT,
+
+	CreatedBy VARCHAR(255),
+	CreatedAt DATETIME,
+	LastUpdatedBy VARCHAR(255),
+	LastUpdatedAt DATETIME,
+	IsActive BIT,
+	IsDeleted BIT,
+
+	CONSTRAINT FK_C_T FOREIGN KEY ([Type]) REFERENCES Contact_Type(Id)
+);
+
+CREATE TABLE Person_Contact(
+	Id BIGINT PRIMARY KEY IDENTITY(1,1),
+	Uuid UNIQUEIDENTIFIER UNIQUE,
+
+	PersonId BIGINT,
+	ContactID BIGINT,
+
+	CreatedBy VARCHAR(255),
+	CreatedAt DATETIME,
+	LastUpdatedBy VARCHAR(255),
+	LastUpdatedAt DATETIME,
+	IsActive BIT,
+	IsDeleted BIT,
+
+	CONSTRAINT FK_PC_P FOREIGN KEY (PersonId) REFERENCES Person(Id),
+	CONSTRAINT FK_PC_C FOREIGN KEY (ContactId) REFERENCES Contact(Id),
+);
+

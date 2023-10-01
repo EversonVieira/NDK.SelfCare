@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="ExtensionMethods\" />
+    <Folder Include="Handlers\" />
+    <Folder Include="Helpers\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\NDK\NDK.Core\NDK.Core.csproj" />
+    <ProjectReference Include="..\NDK.SelfCare.Domain\NDK.SelfCare.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
