@@ -15,4 +15,8 @@
     <Folder Include="Interfaces\Validator\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\NDK\NDK.Core\NDK.Core.csproj" />
+  </ItemGroup>
+
 </Project>
