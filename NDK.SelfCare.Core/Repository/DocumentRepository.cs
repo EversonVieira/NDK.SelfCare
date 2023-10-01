@@ -3,6 +3,7 @@ using NDK.Core.Models;
 using NDK.Database.Base;
 using NDK.Database.Handlers;
 using NDK.Database.Models;
+using NDK.SelfCare.Core.Interfaces.Repository;
 using NDK.SelfCare.Domain.Models;
 using System;
 using System.Collections.Generic;
@@ -12,10 +13,10 @@ using System.Threading.Tasks;
 
 namespace NDK.SelfCare.Core.Repository
 {
-    public class DocumentRepository : NdkSimpleEntityRepository<Document, NdkUser>
+    public class DocumentRepository : NdkSimpleEntityRepository<Document, NdkUser>,IDocumentRepository
     {
         public DocumentRepository(NdkUser loggedUser, 
-                                  NdkDbConnectionHandler connectionHandler, 
+                                  NdkDbConnectionFactory connectionHandler, 
                                   NdkSimpleEntityRepositoryConfig config, 
                                   ILogger<NdkSimpleEntityRepository<Document, NdkUser>> logger) : 
             base(loggedUser, connectionHandler, config, logger)

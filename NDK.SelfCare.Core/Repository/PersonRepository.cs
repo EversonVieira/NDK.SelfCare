@@ -25,16 +25,14 @@ namespace NDK.SelfCare.Core.Repository
 
         public PersonRepository(NdkUser loggedUser, 
                                 NdkDbConnectionConfiguration ndkDbConnectionConfiguration, 
-                                IContactRepository contactRepository, 
-                                IDocumentRepository documentRepository, 
-                                IContactTypeRepository contactTypeRepository,
-                                IDocumentTypeRepository documentTypeRepository, 
+                                //IContactTypeRepository contactTypeRepository,
+                                //IDocumentTypeRepository documentTypeRepository, 
                                 IPersonTypeRepository personTypeRepository)
         {
             _loggedUser = loggedUser;
             _ndkDbConnectionConfiguration = ndkDbConnectionConfiguration;
-            _contactTypeRepository = contactTypeRepository;
-            _documentTypeRepository = documentTypeRepository;
+            //_contactTypeRepository = contactTypeRepository;
+            //_documentTypeRepository = documentTypeRepository;
             _personTypeRepository = personTypeRepository;
         }
 

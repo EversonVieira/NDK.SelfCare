@@ -16,9 +16,9 @@ namespace NDK.SelfCare.Core.Business
     {
 
         private IPersonRepository _repository;
-        private NdkDbConnectionHandler _ndkDbConnectionHandler;
+        private NdkDbConnectionFactory _ndkDbConnectionHandler;
 
-        public PersonBusiness(IPersonRepository repository, NdkDbConnectionHandler ndkDbConnectionHandler)
+        public PersonBusiness(IPersonRepository repository, NdkDbConnectionFactory ndkDbConnectionHandler)
         {
             _repository = repository;
             _ndkDbConnectionHandler = ndkDbConnectionHandler;

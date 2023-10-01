@@ -15,7 +15,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <ProjectReference Include="..\..\NDK\NDK.Core\NDK.Core.csproj" />
+    <ProjectReference Include="..\..\NDK\NDK.Database\NDK.Database.csproj" />
+    <ProjectReference Include="..\NDK.SelfCare.Core\NDK.SelfCare.Core.csproj" />
   </ItemGroup>
 
 </Project>
